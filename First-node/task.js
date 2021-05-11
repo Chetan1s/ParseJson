@@ -1,4 +1,4 @@
-
+//this will read from file
 
 const safeEval = require('safe-eval'),
     jmespath = require('jmespath');
