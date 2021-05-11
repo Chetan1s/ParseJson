@@ -60,7 +60,7 @@ const constructMessage = async function(template='', data={},output={}, template
 };
 
 var JSON2={
-    //"voltage": "215.45",
+    "voltage": "215.45",
     "current": "3.46",
     "power_factor": "0.98",
     "pressure": "1024.56"
