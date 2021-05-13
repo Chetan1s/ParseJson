@@ -29,12 +29,13 @@ const constructMessage = async function(template='', data={},output={}, template
                //  console.log('template -> ', template);
             });
         }
-        console.log(template);
+    //    console.log(template);
 
         var tempJSON=JSON.parse(template);
 
-        console.log("power",tempJSON["power"]);
+      // console.log("power",tempJSON["power"]);
 
+   
         var power=tempJSON["power"].split("*");
         // console.log(typeof power[0]);
         // console.log(power[0]);
@@ -122,19 +123,7 @@ else{
 constructMessage(template,data,output);
 console.log("Input->",data);
 console.log("output->",output);}
-<<<<<<< HEAD
-=======
 
-
-
-
-
-
-
-
-
-
->>>>>>> 8a2a7f9497da4f41f30fc4996e0635628281ad52
 
 
 
