@@ -1,0 +1,145 @@
+Sample cases handling 
+
+Case 1. (Each input is there and the output is restricted to four digits of decimal)
+Input packet={
+  voltage: '215.45',
+  current: '3.46',
+  power_factor: '0.98',
+  pressure: '1024.56'
+}
+
+Output packet={
+  voltage: '215.45',
+  current: '3.46',
+  power_factor: '0.98',
+  pressure: '1024.56',
+  power: '730.5479',
+  pressure_normalized: '50.3776'
+}
+
+Case 2. ( Input data packet is empty)
+Input packet={};
+Output packet={};
+
+Case 3. ( Voltage is not given)
+Input packet={
+  current: '3.46',
+  power_factor: '0.98',
+  pressure: '1024.56'
+}
+Output packet={
+  current: '3.46',
+  power_factor: '0.98',
+  pressure: '1024.56',
+  power: 'Voltage is not given, Power can not be calculated',
+  pressure_normalized: '50.3776'
+}
+
+
+Case 4. ( Current is not given)
+Input packet={
+  voltage: '215.45',
+  power_factor: '0.98',
+  pressure: '1024.56'
+}
+Output packet={
+  voltage: '215.45',
+  power_factor: '0.98',
+  pressure: '1024.56',
+  power: 'Current is not given, Power can not be calculated',
+  pressure_normalized: 'Current is not given, Pressure_normalized can not be calculated'
+}
+
+
+Case 5. ( Power_factor is not given)
+Input packet={
+  voltage: '215.45',
+  current: '3.46',
+  pressure: '1024.56'
+}
+Output packet={
+  voltage: '215.45',
+  current: '3.46',
+  pressure: '1024.56',
+  power: 'Power_factor is not given, Power can not be calculated',
+  pressure_normalized: '50.3776'
+}
+
+Case 6. ( Pressure is not given)
+Input packet={
+  voltage: '215.45',
+  current: '3.46',
+  power_factor: '0.98'
+}
+Output packet={
+  voltage: '215.45',
+  current: '3.46',
+  power_factor: '0.98',
+  power: '730.5479',
+  pressure_normalized: 'Pressure is not given, Pressure_normalized can not be calculated'
+}
+
+Case 7. ( Voltage and Current is not given)
+Input packet={
+  power_factor: '0.98',
+  pressure: '1024.56'
+}
+Output packet={
+  power_factor: '0.98',
+  pressure: '1024.56',
+  power: 'Voltage and Current are not given, Power can not be calculated',
+  pressure_normalized: 'Current is not given, Pressure_normalized can not be calculated'
+}
+
+Case 8. ( Voltage and Power_factor is not given)
+Input packet={
+  current: '3.46',
+  pressure: '1024.56'
+}
+Output packet={
+  current: '3.46',
+  pressure: '1024.56',
+  power: 'Voltage and Power_factor are not given, Power can not be calculated',
+  pressure_normalized: '50.3776'
+}
+
+Case 9. ( Current and Power_factor is not given)
+Input packet={
+  voltage: '215.45',
+  pressure: '1024.56'
+}
+Output packet={
+  voltage: '215.45',
+  pressure: '1024.56',
+  power: 'Current and Power_factor are not given, Power can not be calculated',
+  pressure_normalized: 'Current is not given, Pressure_normalized can not be calculated'
+}
+
+Case 10. ( Voltage, current and Power_factor is not given)
+Input packet={
+  pressure: '1024.56'
+}
+Output packet={
+  pressure: '1024.56',
+  power: "Inputs are not given, power can't be calculated",
+  pressure_normalized: 'Current is not given, Pressure_normalized can not be calculated'
+}
+
+Case 11. ( Current and Pressure is not given)
+Input packet={
+  voltage: '215.45',
+  power_factor: '0.98'
+}
+Output packet={
+  voltage: '215.45',
+  power_factor: '0.98',
+  power: 'Current is not given, Power can not be calculated',
+  pressure_normalized: 'Inputs are not given, Pressure_normalized can not be calculated'
+}
+
+
+
+
+
+
+
