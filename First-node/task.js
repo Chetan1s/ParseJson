@@ -1,5 +1,7 @@
 
 
+
+
 const safeEval = require('safe-eval'),
     jmespath = require('jmespath');
 
@@ -120,6 +122,19 @@ else{
 constructMessage(template,data,output);
 console.log("Input->",data);
 console.log("output->",output);}
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 8a2a7f9497da4f41f30fc4996e0635628281ad52
 
 
 
