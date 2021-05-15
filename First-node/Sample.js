@@ -3,7 +3,7 @@ const safeEval = require('safe-eval'),
 
 
 
-const constructMessage = function(template='', data={}, templateVersion=1) {
+const constructMessage = async function(template='', data={}, templateVersion=1) {
 	try {
         //replace the rest of the variables
         const variablesInExpression = template.match(/{{(.*?)}}/g);
@@ -17,15 +17,14 @@ const constructMessage = function(template='', data={}, templateVersion=1) {
                 const pattern = new RegExp(variable, 'g');
                 var v=(jmespath.search(data, jmesPathExpression));
                 if(v===null){
-                x='NA';
-                return x;}
+                x='NA';}
                // console.log(v,typeof v);
                 template = template.replace(pattern, jmespath.search(data, jmesPathExpression));
                 // console.log('template -> ', template);
             });
         }
         if(x==='NA')
-        return "N";
+        return await "N";
         var templateJSON=JSON.parse(template);
         //console.log(templateJSON);
         var ans;
@@ -35,7 +34,7 @@ const constructMessage = function(template='', data={}, templateVersion=1) {
             ans=safeEval(value);
         });
 
-        return ans;
+        return await ans;
        
 	} catch(err) {
 		console.log(err);
@@ -63,15 +62,19 @@ var output=JSON.parse(out);
 Object.keys(JSON1).forEach(function(key) {
     var value = JSON1[key];
     var str='{"'+key+'"'+':"'+value+'"}';
+    
     //console.log(str,typeof str);
-    var ans=constructMessage(str.toString(),data);
-    //console.log(ans);
-    if(ans==='N'){}
-    else{
-    var a=ans.toFixed(4);
-    output[key]=a;}
-    //console.log(a,typeof a);
-   // ans=safeEval(value);
+    let ans;
+    (async ()=>{
+        ans=await constructMessage(str.toString(),data);
+        if(ans==='N'){}
+        else{
+        output[key]=parseFloat(ans).toFixed(4);}    
+    })()
 });
-console.log("Input->",data);
-console.log("Output->",output);
+//console.log("Hi");
+
+setTimeout(()=>{
+    console.log("Input->",data);
+    console.log("Output->",output);
+},1000)
