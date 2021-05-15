@@ -58,23 +58,26 @@ var JSON1={
 var out=str;
 var output=JSON.parse(out);
 
-
+async function fun (){
 Object.keys(JSON1).forEach(function(key) {
     var value = JSON1[key];
     var str='{"'+key+'"'+':"'+value+'"}';
     
     //console.log(str,typeof str);
+    var count=0;
     let ans;
     (async ()=>{
         ans=await constructMessage(str.toString(),data);
         if(ans==='N'){}
         else{
-        output[key]=parseFloat(ans).toFixed(4);}    
+        output[key]=parseFloat(ans).toFixed(4);}
     })()
 });
-//console.log("Hi");
+return await "" ;
+}
+(async()=>{
+    await fun();
+    console.log("input->",data)
+    console.log("output->",output);
+})()
 
-setTimeout(()=>{
-    console.log("Input->",data);
-    console.log("Output->",output);
-},1000)
